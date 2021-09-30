@@ -13,10 +13,10 @@
 // limitations under the License.
 //
 
-// NOTE: See third_party/absl/strings for more options.
+// NOTE: See third_party/xbsl/strings for more options.
 //
 // As of 2017q4, most use of these routines is considered legacy: use
-// of absl::StrCat, absl::Substitute, or absl::StrFormat is preferred for
+// of xbsl::StrCat, xbsl::Substitute, or xbsl::StrFormat is preferred for
 // performance and safety reasons.
 
 #ifndef S2_BASE_STRINGPRINTF_H_
@@ -31,17 +31,17 @@
 // Return a C++ string
 extern string StringPrintf(const char* format, ...)
     // Tell the compiler to do printf format string checking.
-    ABSL_PRINTF_ATTRIBUTE(1, 2);
+    XBSL_PRINTF_ATTRIBUTE(1, 2);
 
 // Store result into a supplied string and return it
 extern const string& SStringPrintf(string* dst, const char* format, ...)
     // Tell the compiler to do printf format string checking.
-    ABSL_PRINTF_ATTRIBUTE(2, 3);
+    XBSL_PRINTF_ATTRIBUTE(2, 3);
 
 // Append result to a supplied string
 extern void StringAppendF(string* dst, const char* format, ...)
     // Tell the compiler to do printf format string checking.
-    ABSL_PRINTF_ATTRIBUTE(2, 3);
+    XBSL_PRINTF_ATTRIBUTE(2, 3);
 
 // Lower-level routine that takes a va_list and appends to a specified
 // string.  All other routines are just convenience wrappers around it.

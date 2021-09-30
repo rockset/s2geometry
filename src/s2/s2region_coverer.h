@@ -24,7 +24,7 @@
 #include <utility>
 #include <vector>
 
-#include "s2/third_party/absl/base/macros.h"
+#include "s2/third_party/xbsl/base/macros.h"
 #include "s2/_fp_contract_off.h"
 #include "s2/s2cell.h"
 #include "s2/s2cell_id.h"
@@ -258,7 +258,7 @@ class S2RegionCoverer {
     Candidate(const S2Cell& cell, const std::size_t max_children)
         : cell(cell), is_terminal(max_children == 0) {
       std::fill_n(&children[0], max_children,
-                  absl::implicit_cast<Candidate*>(nullptr));
+                  xbsl::implicit_cast<Candidate*>(nullptr));
     }
 
     // Default destructor is fine; Candidate* is trivially destructible.

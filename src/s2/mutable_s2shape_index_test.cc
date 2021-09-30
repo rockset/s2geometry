@@ -50,10 +50,10 @@
 #include "s2/s2shapeutil_visit_crossing_edge_pairs.h"
 #include "s2/s2testing.h"
 #include "s2/s2text_format.h"
-#include "s2/third_party/absl/memory/memory.h"
+#include "s2/third_party/xbsl/memory/memory.h"
 
-using absl::WrapUnique;
-using absl::make_unique;
+using xbsl::WrapUnique;
+using xbsl::make_unique;
 using s2textformat::MakePolyline;
 using std::unique_ptr;
 using std::vector;
@@ -475,14 +475,14 @@ class LazyUpdatesTest : public ::testing::Test {
 
   MutableS2ShapeIndex index_;
   // The following fields are guarded by lock_.
-  absl::Mutex lock_;
+  xbsl::Mutex lock_;
   int num_updates_;
   int num_readers_left_;
 
   // Signalled when a new update is ready to be processed.
-  absl::CondVar update_ready_;
+  xbsl::CondVar update_ready_;
   // Signalled when all readers have processed the latest update.
-  absl::CondVar all_readers_done_;
+  xbsl::CondVar all_readers_done_;
 };
 
 void LazyUpdatesTest::ReaderThread() {

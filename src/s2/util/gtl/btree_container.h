@@ -22,7 +22,7 @@
 #include <initializer_list>
 #include <utility>
 
-#include "s2/third_party/absl/base/internal/throw_delegate.h"
+#include "s2/third_party/xbsl/base/internal/throw_delegate.h"
 #include "s2/util/gtl/btree.h"  // IWYU pragma: export
 
 namespace gtl {
@@ -152,9 +152,9 @@ class btree_container {
   key_compare key_comp() const { return tree_.key_comp(); }
   value_compare value_comp() const { return tree_.value_comp(); }
 
-  // Support absl::Hash.
+  // Support xbsl::Hash.
   template <typename State>
-  friend State AbslHashValue(State h, const btree_container &b) {
+  friend State XbslHashValue(State h, const btree_container &b) {
     for (const auto &v : b) {
       h = State::combine(std::move(h), v);
     }
@@ -300,13 +300,13 @@ class btree_map_container : public btree_set_container<Tree> {
   mapped_type &at(const key_type &key) {
     auto it = this->find(key);
     if (it == this->end())
-      absl::base_internal::ThrowStdOutOfRange("btree_map::at");
+      xbsl::base_internal::ThrowStdOutOfRange("btree_map::at");
     return it->second;
   }
   const mapped_type &at(const key_type &key) const {
     auto it = this->find(key);
     if (it == this->end())
-      absl::base_internal::ThrowStdOutOfRange("btree_map::at");
+      xbsl::base_internal::ThrowStdOutOfRange("btree_map::at");
     return it->second;
   }
 };

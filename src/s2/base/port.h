@@ -16,7 +16,7 @@
 #ifndef S2_BASE_PORT_H_
 #define S2_BASE_PORT_H_
 
-// This file contains things that are not used in third_party/absl but needed by
+// This file contains things that are not used in third_party/xbsl but needed by
 // - Platform specific requirement
 //   - MSVC
 // - Utility macros
@@ -35,11 +35,11 @@
 #include <cstring>
 
 #include "s2/base/integral_types.h"
-#include "s2/third_party/absl/base/config.h"
-#include "s2/third_party/absl/base/port.h"
+#include "s2/third_party/xbsl/base/config.h"
+#include "s2/third_party/xbsl/base/port.h"
 
 #ifdef SWIG
-%include "third_party/absl/base/port.h"
+%include "third_party/xbsl/base/port.h"
 #endif
 
 // -----------------------------------------------------------------------------
@@ -91,7 +91,7 @@
 // Don't warn about unused local variables.
 //
 // extension to silence particular instances of this warning.  There's no way
-// to define ABSL_ATTRIBUTE_UNUSED to quiet particular instances of this warning
+// to define XBSL_ATTRIBUTE_UNUSED to quiet particular instances of this warning
 // in VC++, so we disable it globally.  Currently, there aren't many false
 // positives, so perhaps we can address those in the future and re-enable these
 // warnings, which sometimes catch real bugs.
@@ -217,10 +217,10 @@
 #define GOOGLE_OBSCURE_SIGNAL SIGPWR
 #endif
 
-// ABSL_FUNC_PTR_TO_CHAR_PTR
+// XBSL_FUNC_PTR_TO_CHAR_PTR
 // On some platforms, a "function pointer" points to a function descriptor
 // rather than directly to the function itself.
-// Use ABSL_FUNC_PTR_TO_CHAR_PTR(func) to get a char-pointer to the first
+// Use XBSL_FUNC_PTR_TO_CHAR_PTR(func) to get a char-pointer to the first
 // instruction of the function func.
 // TODO(b/30407660): Move this macro into Abseil when symbolizer is released in
 // Abseil.
@@ -228,15 +228,15 @@
 #if (defined(__powerpc__) && !(_CALL_ELF > 1)) || defined(__ia64)
 // use opd section for function descriptors on these platforms, the function
 // address is the first word of the descriptor
-namespace absl {
+namespace xbsl {
 enum { kPlatformUsesOPDSections = 1 };
-}  // namespace absl
-#define ABSL_FUNC_PTR_TO_CHAR_PTR(func) (reinterpret_cast<char **>(func)[0])
+}  // namespace xbsl
+#define XBSL_FUNC_PTR_TO_CHAR_PTR(func) (reinterpret_cast<char **>(func)[0])
 #else  // not PPC or IA64
-namespace absl {
+namespace xbsl {
 enum { kPlatformUsesOPDSections = 0 };
-}  // namespace absl
-#define ABSL_FUNC_PTR_TO_CHAR_PTR(func) (reinterpret_cast<char *>(func))
+}  // namespace xbsl
+#define XBSL_FUNC_PTR_TO_CHAR_PTR(func) (reinterpret_cast<char *>(func))
 #endif  // PPC or IA64
 #endif  // __cplusplus
 
@@ -375,7 +375,7 @@ static inline uint64 bswap_64(uint64 x) {
 
 #ifdef __cplusplus
 #ifdef STL_MSVC  // not always the same as _MSC_VER
-#include "s2/third_party/absl/base/internal/port_hash.inc"
+#include "s2/third_party/xbsl/base/internal/port_hash.inc"
 #else
 struct PortableHashBase {};
 #endif  // STL_MSVC
@@ -777,12 +777,12 @@ namespace internal {
 struct Unaligned16Struct {
   uint16 value;
   uint8 dummy;  // To make the size non-power-of-two.
-} ABSL_ATTRIBUTE_PACKED;
+} XBSL_ATTRIBUTE_PACKED;
 
 struct Unaligned32Struct {
   uint32 value;
   uint8 dummy;  // To make the size non-power-of-two.
-} ABSL_ATTRIBUTE_PACKED;
+} XBSL_ATTRIBUTE_PACKED;
 
 }  // namespace internal
 }  // namespace base

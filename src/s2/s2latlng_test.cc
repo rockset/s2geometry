@@ -26,10 +26,10 @@
 #include "s2/base/logging.h"
 #include "s2/s2pointutil.h"
 #include "s2/s2testing.h"
-#include "s2/third_party/absl/base/macros.h"
-#include "s2/third_party/absl/strings/str_cat.h"
+#include "s2/third_party/xbsl/base/macros.h"
+#include "s2/third_party/xbsl/strings/str_cat.h"
 
-using absl::StrCat;
+using xbsl::StrCat;
 using std::fabs;
 
 TEST(S2LatLng, TestBasic) {

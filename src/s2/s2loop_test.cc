@@ -49,12 +49,12 @@
 #include "s2/s2predicates.h"
 #include "s2/s2testing.h"
 #include "s2/s2text_format.h"
-#include "s2/third_party/absl/container/fixed_array.h"
-#include "s2/third_party/absl/memory/memory.h"
+#include "s2/third_party/xbsl/container/fixed_array.h"
+#include "s2/third_party/xbsl/memory/memory.h"
 #include "s2/util/math/matrix3x3.h"
 #include "s2/util/math/vector.h"
 
-using absl::make_unique;
+using xbsl::make_unique;
 using std::fabs;
 using std::map;
 using std::max;
@@ -227,7 +227,7 @@ class S2LoopTestBase : public testing::Test {
   // Wrapper function that encodes "loop" into "encoder" using the private
   // EncodeCompressed() method.
   void TestEncodeCompressed(const S2Loop& loop, int level, Encoder* encoder) {
-    absl::FixedArray<S2XYZFaceSiTi> points(loop.num_vertices());
+    xbsl::FixedArray<S2XYZFaceSiTi> points(loop.num_vertices());
     loop.GetXYZFaceSiTiVertices(points.data());
     loop.EncodeCompressed(encoder, points.data(), level);
   }

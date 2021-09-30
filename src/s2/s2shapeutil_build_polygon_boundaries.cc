@@ -18,13 +18,13 @@
 #include "s2/s2shapeutil_build_polygon_boundaries.h"
 
 #include "s2/util/gtl/btree_map.h"
-#include "s2/third_party/absl/memory/memory.h"
+#include "s2/third_party/xbsl/memory/memory.h"
 #include "s2/mutable_s2shape_index.h"
 #include "s2/s2contains_point_query.h"
 #include "s2/s2shape_index.h"
 #include "s2/s2shapeutil_contains_brute_force.h"
 
-using absl::WrapUnique;
+using xbsl::WrapUnique;
 using std::vector;
 
 namespace s2shapeutil {

@@ -17,9 +17,9 @@
 
 #include "s2/encoded_string_vector.h"
 
-using absl::MakeSpan;
-using absl::Span;
-using absl::string_view;
+using xbsl::MakeSpan;
+using xbsl::Span;
+using xbsl::string_view;
 using std::vector;
 
 namespace s2coding {

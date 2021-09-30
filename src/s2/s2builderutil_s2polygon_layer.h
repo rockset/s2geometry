@@ -37,7 +37,7 @@
 #include <vector>
 #include "s2/base/logging.h"
 #include "s2/util/gtl/btree_map.h"
-#include "s2/third_party/absl/memory/memory.h"
+#include "s2/third_party/xbsl/memory/memory.h"
 #include "s2/id_set_lexicon.h"
 #include "s2/mutable_s2shape_index.h"
 #include "s2/s2builder.h"
@@ -167,7 +167,7 @@ class IndexedS2PolygonLayer : public S2Builder::Layer {
     layer_.Build(g, error);
     if (error->ok() && !polygon_->is_empty()) {
       index_->Add(
-          absl::make_unique<S2Polygon::OwningShape>(std::move(polygon_)));
+          xbsl::make_unique<S2Polygon::OwningShape>(std::move(polygon_)));
     }
   }
 

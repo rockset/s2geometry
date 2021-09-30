@@ -20,8 +20,8 @@
 %define %unignore %rename("%s") %enddef
 %define %unignoreall %rename("%s") ""; %enddef
 
-%define ABSL_ATTRIBUTE_ALWAYS_INLINE %enddef
-%define ABSL_DEPRECATED(msg)
+%define XBSL_ATTRIBUTE_ALWAYS_INLINE %enddef
+%define XBSL_DEPRECATED(msg)
 %enddef
 
 // SWIG <3.0 does not understand these C++11 keywords (unsure of exact version).

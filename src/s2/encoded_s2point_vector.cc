@@ -17,13 +17,13 @@
 
 #include "s2/encoded_s2point_vector.h"
 
-#include "s2/third_party/absl/base/internal/unaligned_access.h"
+#include "s2/third_party/xbsl/base/internal/unaligned_access.h"
 #include "s2/util/bits/bits.h"
 #include "s2/s2cell_id.h"
 #include "s2/s2coords.h"
 
-using absl::MakeSpan;
-using absl::Span;
+using xbsl::MakeSpan;
+using xbsl::Span;
 using std::max;
 using std::min;
 using std::vector;
@@ -154,7 +154,7 @@ void EncodeS2PointVectorFast(Span<const S2Point> points, Encoder* encoder) {
 
 bool EncodedS2PointVector::InitUncompressedFormat(Decoder* decoder) {
 #if !defined(IS_LITTLE_ENDIAN) || defined(__arm__) || \
-  defined(ABSL_INTERNAL_NEED_ALIGNED_LOADS)
+  defined(XBSL_INTERNAL_NEED_ALIGNED_LOADS)
   // TODO(ericv): Make this work on platforms that don't support unaligned
   // 64-bit little-endian reads, e.g. by falling back to
   //

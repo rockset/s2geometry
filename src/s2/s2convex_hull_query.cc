@@ -25,11 +25,11 @@
 
 #include "s2/s2convex_hull_query.h"
 
-#include "s2/third_party/absl/memory/memory.h"
+#include "s2/third_party/xbsl/memory/memory.h"
 #include "s2/s2pointutil.h"
 #include "s2/s2predicates.h"
 
-using absl::make_unique;
+using xbsl::make_unique;
 using std::unique_ptr;
 using std::vector;
 

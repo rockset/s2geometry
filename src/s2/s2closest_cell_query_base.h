@@ -24,7 +24,7 @@
 
 #include "s2/base/logging.h"
 #include "s2/util/gtl/btree_set.h"
-#include "s2/third_party/absl/container/inlined_vector.h"
+#include "s2/third_party/xbsl/container/inlined_vector.h"
 #include "s2/s1chord_angle.h"
 #include "s2/s2cap.h"
 #include "s2/s2cell_id.h"
@@ -357,7 +357,7 @@ class S2ClosestCellQueryBase {
     }
   };
   using CellQueue =
-      std::priority_queue<QueueEntry, absl::InlinedVector<QueueEntry, 16>>;
+      std::priority_queue<QueueEntry, xbsl::InlinedVector<QueueEntry, 16>>;
   CellQueue queue_;
 
   // Used to iterate over the contents of an S2CellIndex range.  It is defined

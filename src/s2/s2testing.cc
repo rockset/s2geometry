@@ -43,11 +43,11 @@
 #include "s2/s2region.h"
 #include "s2/s2text_format.h"
 #include "s2/strings/serialize.h"
-#include "s2/third_party/absl/memory/memory.h"
-#include "s2/third_party/absl/strings/str_split.h"
+#include "s2/third_party/xbsl/memory/memory.h"
+#include "s2/third_party/xbsl/strings/str_split.h"
 #include "s2/util/math/matrix3x3.h"
 
-using absl::make_unique;
+using xbsl::make_unique;
 using std::max;
 using std::unique_ptr;
 using std::vector;

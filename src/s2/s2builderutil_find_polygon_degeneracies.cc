@@ -21,7 +21,7 @@
 #include <utility>
 #include <vector>
 
-#include "s2/third_party/absl/memory/memory.h"
+#include "s2/third_party/xbsl/memory/memory.h"
 #include "s2/mutable_s2shape_index.h"
 #include "s2/s2builder_graph.h"
 #include "s2/s2builderutil_graph_shape.h"
@@ -31,7 +31,7 @@
 #include "s2/s2pointutil.h"
 #include "s2/s2predicates.h"
 
-using absl::make_unique;
+using xbsl::make_unique;
 using std::make_pair;
 using std::pair;
 using std::vector;

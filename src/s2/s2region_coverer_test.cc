@@ -42,11 +42,11 @@
 #include "s2/s2polyline.h"
 #include "s2/s2region.h"
 #include "s2/s2testing.h"
-#include "s2/third_party/absl/memory/memory.h"
-#include "s2/third_party/absl/strings/str_cat.h"
-#include "s2/third_party/absl/strings/str_split.h"
+#include "s2/third_party/xbsl/memory/memory.h"
+#include "s2/third_party/xbsl/strings/str_cat.h"
+#include "s2/third_party/xbsl/strings/str_split.h"
 
-using absl::StrCat;
+using xbsl::StrCat;
 using std::max;
 using std::min;
 using std::priority_queue;
@@ -276,7 +276,7 @@ static void TestAccuracy(int max_cells) {
 
 TEST(S2RegionCoverer, Accuracy) {
   for (auto max_cells :
-           absl::StrSplit(FLAGS_max_cells, ',', absl::SkipEmpty())) {
+           xbsl::StrSplit(FLAGS_max_cells, ',', xbsl::SkipEmpty())) {
     TestAccuracy(atoi32(string(max_cells).c_str()));
   }
 }
@@ -483,7 +483,7 @@ TEST(JavaCcConsistency, CheckCovering) {
   std::vector<S2Point> points = {
       S2LatLng::FromDegrees(-33.8663457, 151.1960891).ToPoint(),
       S2LatLng::FromDegrees(-33.866094000000004, 151.19517439999998).ToPoint()};
-  std::unique_ptr<S2Polyline> polyline = absl::make_unique<S2Polyline>(points);
+  std::unique_ptr<S2Polyline> polyline = xbsl::make_unique<S2Polyline>(points);
   S2RegionCoverer coverer;
   coverer.mutable_options()->set_min_level(0);
   coverer.mutable_options()->set_max_level(22);

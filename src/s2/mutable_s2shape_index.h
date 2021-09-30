@@ -35,9 +35,8 @@
 #include "s2/s2pointutil.h"
 #include "s2/s2shape.h"
 #include "s2/s2shape_index.h"
-#include "s2/third_party/absl/base/macros.h"
-#include "s2/third_party/absl/base/thread_annotations.h"
-#include "s2/third_party/absl/memory/memory.h"
+#include "s2/third_party/xbsl/base/macros.h"
+#include "s2/third_party/xbsl/memory/memory.h"
 #include "s2/util/gtl/btree_map.h"
 
 // MutableS2ShapeIndex is a class for in-memory indexing of polygonal geometry.
@@ -80,7 +79,7 @@
 //                        const vector<S2Polygon*>& polygons) {
 //     MutableS2ShapeIndex index;
 //     for (auto polygon : polygons) {
-//       index.Add(absl::make_unique<S2Polygon::Shape>(polygon));
+//       index.Add(xbsl::make_unique<S2Polygon::Shape>(polygon));
 //     }
 //     auto query = MakeS2ContainsPointQuery(&index);
 //     for (const auto& point : points) {
@@ -459,7 +458,7 @@ class MutableS2ShapeIndex final : public S2ShapeIndex {
     // This mutex is used as a condition variable.  It is locked by the
     // updating thread for the entire duration of the update; other threads
     // lock it in order to wait until the update is finished.
-    absl::Mutex wait_mutex;
+    xbsl::Mutex wait_mutex;
 
     // The number of threads currently waiting on "wait_mutex_".  The
     // UpdateState can only be freed when this number reaches zero.
@@ -477,9 +476,7 @@ class MutableS2ShapeIndex final : public S2ShapeIndex {
   std::unique_ptr<UpdateState> update_state_;
 
   // Documented in the .cc file.
-  void UnlockAndSignal()
-      UNLOCK_FUNCTION(lock_)
-      UNLOCK_FUNCTION(update_state_->wait_mutex);
+  void UnlockAndSignal();
 
   MutableS2ShapeIndex(const MutableS2ShapeIndex&) = delete;
   void operator=(const MutableS2ShapeIndex&) = delete;
@@ -561,7 +558,7 @@ inline void MutableS2ShapeIndex::Iterator::Seek(S2CellId target) {
 
 inline std::unique_ptr<MutableS2ShapeIndex::IteratorBase>
 MutableS2ShapeIndex::NewIterator(InitialPosition pos) const {
-  return absl::make_unique<Iterator>(this, pos);
+  return xbsl::make_unique<Iterator>(this, pos);
 }
 
 inline bool MutableS2ShapeIndex::is_fresh() const {

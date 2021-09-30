@@ -37,7 +37,7 @@
 
 #include "s2/base/integral_types.h"
 #include "s2/base/port.h"
-#include "s2/third_party/absl/base/macros.h"
+#include "s2/third_party/xbsl/base/macros.h"
 #include "s2/util/bits/bits.h"
 
 // Just a namespace, not a real class
@@ -128,11 +128,11 @@ class Varint {
   //            encoding this value as a Varint64 value.  This means
   //            that if both a and b are small, both values can be
   //            encoded in a single byte.
-  ABSL_DEPRECATED("Use TwoValuesVarint::Encode32.")
+  XBSL_DEPRECATED("Use TwoValuesVarint::Encode32.")
   static void EncodeTwo32Values(string* s, uint32 a, uint32 b);
-  ABSL_DEPRECATED("Use TwoValuesVarint::Decode32.")
+  XBSL_DEPRECATED("Use TwoValuesVarint::Decode32.")
   static const char* DecodeTwo32Values(const char* ptr, uint32* a, uint32* b);
-  ABSL_DEPRECATED("Use TwoValuesVarint::Decode32WithLimit.")
+  XBSL_DEPRECATED("Use TwoValuesVarint::Decode32WithLimit.")
   static const char* DecodeTwo32ValuesWithLimit(const char* ptr,
                                                 const char* limit, uint32* a,
                                                 uint32* b);

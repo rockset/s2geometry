@@ -70,7 +70,7 @@
 #include <utility>
 
 #include "s2/util/gtl/btree_map.h"
-#include "s2/third_party/absl/memory/memory.h"
+#include "s2/third_party/xbsl/memory/memory.h"
 #include "s2/s2builder.h"
 #include "s2/s2builder_layer.h"
 #include "s2/s2builderutil_snap_functions.h"
@@ -88,7 +88,7 @@ extern bool s2builder_verbose;
 
 namespace {  // Anonymous namespace for helper classes.
 
-using absl::make_unique;
+using xbsl::make_unique;
 using std::make_pair;
 using std::max;
 using std::min;
@@ -174,7 +174,7 @@ struct CrossingGraphEdge {
   bool outgoing;
   VertexId dst;
 };
-using CrossingGraphEdgeVector = absl::InlinedVector<CrossingGraphEdge, 2>;
+using CrossingGraphEdgeVector = xbsl::InlinedVector<CrossingGraphEdge, 2>;
 
 // Returns a vector of EdgeIds sorted by input edge id.  When more than one
 // output edge has the same input edge id (i.e., the input edge snapped to a

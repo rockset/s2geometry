@@ -18,11 +18,11 @@
 #include <string>
 #include <vector>
 
-#include "s2/third_party/absl/strings/str_split.h"
-#include "s2/third_party/absl/strings/string_view.h"
+#include "s2/third_party/xbsl/strings/str_split.h"
+#include "s2/third_party/xbsl/strings/string_view.h"
 
-using absl::StrSplit;
-using absl::string_view;
+using xbsl::StrSplit;
+using xbsl::string_view;
 using std::pair;
 using std::string;
 using std::vector;

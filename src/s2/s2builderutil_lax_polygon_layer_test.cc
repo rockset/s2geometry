@@ -24,14 +24,14 @@
 #include <string>
 #include <gtest/gtest.h>
 #include "s2/base/integral_types.h"
-#include "s2/third_party/absl/memory/memory.h"
-#include "s2/third_party/absl/strings/string_view.h"
+#include "s2/third_party/xbsl/memory/memory.h"
+#include "s2/third_party/xbsl/strings/string_view.h"
 #include "s2/mutable_s2shape_index.h"
 #include "s2/s2debug.h"
 #include "s2/s2text_format.h"
 
-using absl::make_unique;
-using absl::string_view;
+using xbsl::make_unique;
+using xbsl::string_view;
 using s2builderutil::IndexedLaxPolygonLayer;
 using s2builderutil::LaxPolygonLayer;
 using s2textformat::MakeLaxPolygonOrDie;

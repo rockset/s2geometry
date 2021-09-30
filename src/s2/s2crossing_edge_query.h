@@ -21,8 +21,8 @@
 #include <type_traits>
 #include <vector>
 
-#include "s2/third_party/absl/base/macros.h"
-#include "s2/third_party/absl/container/inlined_vector.h"
+#include "s2/third_party/xbsl/base/macros.h"
+#include "s2/third_party/xbsl/container/inlined_vector.h"
 #include "s2/_fp_contract_off.h"
 #include "s2/r2.h"
 #include "s2/r2rect.h"
@@ -50,7 +50,7 @@ enum class CrossingType { INTERIOR, ALL };
 //           const S2Point& a0, const S2Point &a1) {
 //   MutableS2ShapeIndex index;
 //   for (S2Polyline* polyline : polylines) {
-//     index.Add(absl::make_unique<S2Polyline::Shape>(polyline));
+//     index.Add(xbsl::make_unique<S2Polyline::Shape>(polyline));
 //   }
 //   S2CrossingEdgeQuery query(&index);
 //   for (const auto& edge : query.GetCrossingEdges(a, b, CrossingType::ALL)) {

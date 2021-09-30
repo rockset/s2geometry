@@ -23,7 +23,7 @@
 
 #include "s2/base/logging.h"
 #include "s2/util/gtl/btree_set.h"
-#include "s2/third_party/absl/container/inlined_vector.h"
+#include "s2/third_party/xbsl/container/inlined_vector.h"
 #include "s2/_fp_contract_off.h"
 #include "s2/s1angle.h"
 #include "s2/s1chord_angle.h"
@@ -307,7 +307,7 @@ class S2ClosestEdgeQueryBase {
   // The covering needs to be stored in a std::vector so that we can use
   // S2CellUnion::GetIntersection().
   std::vector<S2CellId> index_covering_;
-  absl::InlinedVector<const S2ShapeIndexCell*, 6> index_cells_;
+  xbsl::InlinedVector<const S2ShapeIndexCell*, 6> index_cells_;
 
   // The decision about whether to use the brute force algorithm is based on
   // counting the total number of edges in the index.  However if the index
@@ -392,7 +392,7 @@ class S2ClosestEdgeQueryBase {
     }
   };
   using CellQueue =
-      std::priority_queue<QueueEntry, absl::InlinedVector<QueueEntry, 16>>;
+      std::priority_queue<QueueEntry, xbsl::InlinedVector<QueueEntry, 16>>;
   CellQueue queue_;
 
   // Temporaries, defined here to avoid multiple allocations / initializations.

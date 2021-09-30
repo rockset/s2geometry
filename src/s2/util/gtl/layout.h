@@ -16,12 +16,12 @@
 #ifndef S2_UTIL_GTL_LAYOUT_H_
 #define S2_UTIL_GTL_LAYOUT_H_
 
-#include "s2/third_party/absl/container/internal/layout.h"
+#include "s2/third_party/xbsl/container/internal/layout.h"
 
 namespace gtl {
 
-using absl::container_internal::Aligned;
-using absl::container_internal::Layout;
+using xbsl::container_internal::Aligned;
+using xbsl::container_internal::Layout;
 
 }  // namespace gtl
 

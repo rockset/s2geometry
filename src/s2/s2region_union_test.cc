@@ -21,7 +21,7 @@
 #include <vector>
 
 #include <gtest/gtest.h>
-#include "s2/third_party/absl/memory/memory.h"
+#include "s2/third_party/xbsl/memory/memory.h"
 #include "s2/s2cap.h"
 #include "s2/s2cell.h"
 #include "s2/s2cell_id.h"
@@ -31,7 +31,7 @@
 #include "s2/s2region_coverer.h"
 #include "s2/s2text_format.h"
 
-using absl::make_unique;
+using xbsl::make_unique;
 using std::unique_ptr;
 using std::vector;
 

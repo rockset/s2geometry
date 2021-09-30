@@ -23,12 +23,12 @@
 #include <memory>
 #include "s2/base/integral_types.h"
 #include "s2/base/logging.h"
-#include "s2/third_party/absl/memory/memory.h"
+#include "s2/third_party/xbsl/memory/memory.h"
 #include "s2/s2cell_id.h"
 #include "s2/s2latlng.h"
 #include "s2/s2metrics.h"
 
-using absl::make_unique;
+using xbsl::make_unique;
 using std::max;
 using std::min;
 using std::unique_ptr;

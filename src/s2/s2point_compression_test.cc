@@ -29,13 +29,13 @@
 #include "s2/s2coords.h"
 #include "s2/s2testing.h"
 #include "s2/s2text_format.h"
-#include "s2/third_party/absl/container/fixed_array.h"
-#include "s2/third_party/absl/types/span.h"
+#include "s2/third_party/xbsl/container/fixed_array.h"
+#include "s2/third_party/xbsl/types/span.h"
 #include "s2/util/coding/coder.h"
 
-using absl::FixedArray;
-using absl::MakeSpan;
-using absl::Span;
+using xbsl::FixedArray;
+using xbsl::MakeSpan;
+using xbsl::Span;
 using std::vector;
 
 S2_DEFINE_int32(s2point_compression_bm_level, 30,

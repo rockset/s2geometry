@@ -21,8 +21,8 @@
 #include "s2/base/logging.h"
 #include "s2/s2polyline.h"
 
-using absl::make_unique;
-using absl::MakeSpan;
+using xbsl::make_unique;
+using xbsl::MakeSpan;
 using std::vector;
 
 S2LaxPolylineShape::S2LaxPolylineShape(const vector<S2Point>& vertices) {

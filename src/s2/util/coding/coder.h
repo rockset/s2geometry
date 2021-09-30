@@ -27,8 +27,8 @@
 #include "s2/base/integral_types.h"
 #include "s2/base/logging.h"
 #include "s2/base/port.h"
-#include "s2/third_party/absl/base/macros.h"
-#include "s2/third_party/absl/meta/type_traits.h"
+#include "s2/third_party/xbsl/base/macros.h"
+#include "s2/third_party/xbsl/meta/type_traits.h"
 #include "s2/util/coding/varint.h"
 #include "s2/util/endian/endian.h"
 
@@ -309,7 +309,7 @@ inline bool Encoder::PutVarint64FromDecoderLessCommonSizes(Decoder* dec) {
 
   // Check once if both the encoder and the decoder have enough room for
   // maximum varint64 (kVarintMax64) instead of checking at every bytes.
-  if (ABSL_PREDICT_TRUE(dec_ptr <= dec_limit - kVarintMax64 &&
+  if (XBSL_PREDICT_TRUE(dec_ptr <= dec_limit - kVarintMax64 &&
                         buf_ <= limit_ - kVarintMax64)) {
     if (dec_ptr[2] < 128) {
       CopyAndAdvance<3>(&dec->buf_, &buf_);
@@ -369,14 +369,14 @@ inline bool Encoder::PutVarint64FromDecoderLessCommonSizes(Decoder* dec) {
 // over-inlining, PutVarint64FromDecoderLessCommonSizes is defined in coder.cc.
 // As Untranspose::DecodeMessage is the only caller, compiler should be able to
 // inline all if necessary.
-ABSL_ATTRIBUTE_ALWAYS_INLINE inline bool Encoder::put_varint64_from_decoder(
+XBSL_ATTRIBUTE_ALWAYS_INLINE inline bool Encoder::put_varint64_from_decoder(
     Decoder* dec) {
   unsigned char* enc_ptr = buf_;
   const unsigned char* dec_ptr = dec->buf_;
 
   // Common cases to handle varint64 with one to two bytes.
-  if (ABSL_PREDICT_TRUE(dec_ptr < dec->limit_ && dec_ptr[0] < 128)) {
-    if (ABSL_PREDICT_FALSE(enc_ptr >= limit_)) {
+  if (XBSL_PREDICT_TRUE(dec_ptr < dec->limit_ && dec_ptr[0] < 128)) {
+    if (XBSL_PREDICT_FALSE(enc_ptr >= limit_)) {
       return false;
     }
     *enc_ptr = *dec_ptr;
@@ -386,7 +386,7 @@ ABSL_ATTRIBUTE_ALWAYS_INLINE inline bool Encoder::put_varint64_from_decoder(
   }
 
   if (dec_ptr < dec->limit_ - 1 && dec_ptr[1] < 128) {
-    if (ABSL_PREDICT_FALSE(enc_ptr >= limit_ - 1)) {
+    if (XBSL_PREDICT_FALSE(enc_ptr >= limit_ - 1)) {
       return false;
     }
     UNALIGNED_STORE16(enc_ptr, UNALIGNED_LOAD16(dec_ptr));
@@ -455,11 +455,11 @@ inline void DecoderExtensions::FillArray(Decoder* array, int num_decoders) {
   // This is an optimization based on the fact that Decoder(nullptr, 0) sets all
   // structure bytes to 0. This is valid because Decoder is TriviallyCopyable
   // (https://en.cppreference.com/w/cpp/named_req/TriviallyCopyable).
-  static_assert(absl::is_trivially_copy_constructible<Decoder>::value,
+  static_assert(xbsl::is_trivially_copy_constructible<Decoder>::value,
                 "Decoder must be trivially copy-constructible");
-  static_assert(absl::is_trivially_copy_assignable<Decoder>::value,
+  static_assert(xbsl::is_trivially_copy_assignable<Decoder>::value,
                 "Decoder must be trivially copy-assignable");
-  static_assert(absl::is_trivially_destructible<Decoder>::value,
+  static_assert(xbsl::is_trivially_destructible<Decoder>::value,
                 "Decoder must be trivially destructible");
   std::memset(array, 0, num_decoders * sizeof(Decoder));
 }
@@ -489,11 +489,11 @@ inline void Encoder::put64(uint64 v) {
 }
 
 inline void Encoder::putfloat(float f) {
-  put32(absl::bit_cast<uint32>(f));
+  put32(xbsl::bit_cast<uint32>(f));
 }
 
 inline void Encoder::putdouble(double d) {
-  put64(absl::bit_cast<uint64>(d));
+  put64(xbsl::bit_cast<uint64>(d));
 }
 
 inline unsigned char Decoder::get8() {
@@ -521,11 +521,11 @@ inline uint64 Decoder::get64() {
 }
 
 inline float Decoder::getfloat() {
-  return absl::bit_cast<float>(get32());
+  return xbsl::bit_cast<float>(get32());
 }
 
 inline double Decoder::getdouble() {
-  return absl::bit_cast<double>(get64());
+  return xbsl::bit_cast<double>(get64());
 }
 
 inline bool Decoder::get_varint32(uint32* v) {

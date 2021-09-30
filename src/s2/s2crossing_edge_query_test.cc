@@ -38,11 +38,11 @@
 #include "s2/s2polyline.h"
 #include "s2/s2testing.h"
 #include "s2/s2text_format.h"
-#include "s2/third_party/absl/memory/memory.h"
-#include "s2/third_party/absl/strings/str_cat.h"
+#include "s2/third_party/xbsl/memory/memory.h"
+#include "s2/third_party/xbsl/strings/str_cat.h"
 
-using absl::make_unique;
-using absl::StrCat;
+using xbsl::make_unique;
+using xbsl::StrCat;
 using s2shapeutil::ShapeEdge;
 using s2shapeutil::ShapeEdgeId;
 using s2textformat::MakePoint;
@@ -121,7 +121,7 @@ void TestAllCrossings(const vector<TestEdge>& edges) {
   MutableS2ShapeIndex::Options options;
   options.set_max_edges_per_cell(1);
   MutableS2ShapeIndex index(options);
-  const int shape_id = index.Add(absl::WrapUnique(shape));
+  const int shape_id = index.Add(xbsl::WrapUnique(shape));
   EXPECT_EQ(0, shape_id);
   // To check that candidates are being filtered reasonably, we count the
   // total number of candidates that the total number of edge pairs that
@@ -161,7 +161,7 @@ void TestAllCrossings(const vector<TestEdge>& edges) {
         ++num_nearby_pairs;
         if (!std::binary_search(candidates.begin(), candidates.end(),
                                 ShapeEdgeId{0, i})) {
-          absl::StrAppend(&missing_candidates, " ", i);
+          xbsl::StrAppend(&missing_candidates, " ", i);
         }
       } else {
         const double kMaxDist = S2::kMaxDiag.GetValue(S2::kMaxCellLevel);

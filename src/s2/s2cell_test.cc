@@ -46,11 +46,11 @@
 #include "s2/s2pointutil.h"
 #include "s2/s2testing.h"
 #include "s2/s2text_format.h"
-#include "s2/third_party/absl/base/macros.h"
-#include "s2/third_party/absl/memory/memory.h"
-#include "s2/third_party/absl/strings/str_cat.h"
+#include "s2/third_party/xbsl/base/macros.h"
+#include "s2/third_party/xbsl/memory/memory.h"
+#include "s2/third_party/xbsl/strings/str_cat.h"
 
-using absl::StrCat;
+using xbsl::StrCat;
 using S2::internal::kSwapMask;
 using s2textformat::MakePointOrDie;
 using std::fabs;

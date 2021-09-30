@@ -34,7 +34,7 @@
 #include <cstdlib>
 #include <iterator>
 
-#include "s2/third_party/absl/base/macros.h"
+#include "s2/third_party/xbsl/base/macros.h"
 
 namespace gtl {
 
@@ -47,7 +47,7 @@ namespace gtl {
 // This function is deprecated.  See the file comment above for
 // additional details.
 template <class RandomIt, class RandomFunc>
-ABSL_DEPRECATED("Use std::shuffle instead; see go/nors-legacy-api")
+XBSL_DEPRECATED("Use std::shuffle instead; see go/nors-legacy-api")
 void legacy_random_shuffle(const RandomIt begin, const RandomIt end,
                            RandomFunc&& rnd) {
   auto size = std::distance(begin, end);
@@ -63,7 +63,7 @@ void legacy_random_shuffle(const RandomIt begin, const RandomIt end,
 // This function is deprecated.  See the file comment above for
 // additional details.
 template <class RandomIt>
-ABSL_DEPRECATED("Use std::shuffle instead; see go/nors-legacy-api")
+XBSL_DEPRECATED("Use std::shuffle instead; see go/nors-legacy-api")
 void legacy_random_shuffle(RandomIt begin, RandomIt end) {
   legacy_random_shuffle(
       begin, end,

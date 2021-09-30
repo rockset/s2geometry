@@ -23,9 +23,9 @@
 
 #include "s2/base/logging.h"
 #include <gtest/gtest.h>
-#include "s2/third_party/absl/memory/memory.h"
+#include "s2/third_party/xbsl/memory/memory.h"
 
-using absl::make_unique;
+using xbsl::make_unique;
 
 template <class T>
 void ExpectSequence(const std::vector<T>& expected,

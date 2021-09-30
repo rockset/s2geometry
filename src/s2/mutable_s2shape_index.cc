@@ -133,7 +133,7 @@ const S2ShapeIndexCell* MutableS2ShapeIndex::Iterator::GetCell() const {
 
 unique_ptr<MutableS2ShapeIndex::IteratorBase>
 MutableS2ShapeIndex::Iterator::Clone() const {
-  return absl::make_unique<Iterator>(*this);
+  return xbsl::make_unique<Iterator>(*this);
 }
 
 void MutableS2ShapeIndex::Iterator::Copy(const IteratorBase& other)  {

@@ -19,14 +19,14 @@
 
 #include <vector>
 #include <gtest/gtest.h>
-#include "s2/third_party/absl/memory/memory.h"
+#include "s2/third_party/xbsl/memory/memory.h"
 #include "s2/s2loop.h"
 #include "s2/s2pointutil.h"
 #include "s2/s2shape_index.h"
 #include "s2/s2testing.h"
 #include "s2/s2text_format.h"
 
-using absl::make_unique;
+using xbsl::make_unique;
 using s2textformat::MakeCellIdOrDie;
 using std::vector;
 

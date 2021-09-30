@@ -36,14 +36,14 @@
 %apply std::vector<S2CellId> *OUTPUT {std::vector<S2CellId> *interior};
 %apply std::vector<S2CellId> *OUTPUT {std::vector<S2CellId> *output};
 
-%typemap(in) absl::string_view {
+%typemap(in) xbsl::string_view {
   if (PyUnicode_Check($input)) {
-    $1 = absl::string_view(PyUnicode_AsUTF8($input));
+    $1 = xbsl::string_view(PyUnicode_AsUTF8($input));
   } else {
     SWIG_exception(SWIG_TypeError, "string expected");
   }
 }
-%typemap(typecheck) absl::string_view = char *;
+%typemap(typecheck) xbsl::string_view = char *;
 
 
 %typemap(in, numinputs=0) S2CellId *OUTPUT_ARRAY_4(S2CellId temp[4]) {
@@ -618,16 +618,16 @@ class S2Point {
 %unignore S2RegionTermIndexer;
 %unignore S2RegionTermIndexer::S2RegionTermIndexer;
 %unignore S2RegionTermIndexer::~S2RegionTermIndexer;
-%unignore S2RegionTermIndexer::GetIndexTerms(const S2Point&, absl::string_view);
+%unignore S2RegionTermIndexer::GetIndexTerms(const S2Point&, xbsl::string_view);
 %unignore S2RegionTermIndexer::GetIndexTerms(const S2Region&,
-                                             absl::string_view);
+                                             xbsl::string_view);
 %unignore S2RegionTermIndexer::GetIndexTermsForCanonicalCovering(
-    const S2CellUnion&, absl::string_view);
-%unignore S2RegionTermIndexer::GetQueryTerms(const S2Point&, absl::string_view);
+    const S2CellUnion&, xbsl::string_view);
+%unignore S2RegionTermIndexer::GetQueryTerms(const S2Point&, xbsl::string_view);
 %unignore S2RegionTermIndexer::GetQueryTerms(const S2Region&,
-                                             absl::string_view);
+                                             xbsl::string_view);
 %unignore S2RegionTermIndexer::GetQueryTermsForCanonicalCovering(
-    const S2CellUnion&, absl::string_view);
+    const S2CellUnion&, xbsl::string_view);
 
 %include "s2/r1interval.h"
 %include "s2/s1angle.h"

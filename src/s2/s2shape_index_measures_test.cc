@@ -22,7 +22,7 @@
 #include "s2/s2shape_index_measures.h"
 
 #include <gtest/gtest.h>
-#include "s2/third_party/absl/memory/memory.h"
+#include "s2/third_party/xbsl/memory/memory.h"
 #include "s2/mutable_s2shape_index.h"
 #include "s2/s2lax_polygon_shape.h"
 #include "s2/s2lax_polyline_shape.h"
@@ -30,7 +30,7 @@
 #include "s2/s2pointutil.h"
 #include "s2/s2text_format.h"
 
-using absl::make_unique;
+using xbsl::make_unique;
 using s2textformat::MakeIndexOrDie;
 
 namespace {

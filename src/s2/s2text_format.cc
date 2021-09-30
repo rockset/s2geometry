@@ -21,10 +21,10 @@
 #include "s2/base/logging.h"
 #include "s2/base/stringprintf.h"
 #include "s2/strings/serialize.h"
-#include "s2/third_party/absl/memory/memory.h"
-#include "s2/third_party/absl/strings/str_split.h"
-#include "s2/third_party/absl/strings/string_view.h"
-#include "s2/third_party/absl/strings/strip.h"
+#include "s2/third_party/xbsl/memory/memory.h"
+#include "s2/third_party/xbsl/strings/str_split.h"
+#include "s2/third_party/xbsl/strings/string_view.h"
+#include "s2/third_party/xbsl/strings/strip.h"
 #include "s2/mutable_s2shape_index.h"
 #include "s2/s2latlng.h"
 #include "s2/s2lax_polygon_shape.h"
@@ -34,8 +34,8 @@
 #include "s2/s2polygon.h"
 #include "s2/s2polyline.h"
 
-using absl::make_unique;
-using absl::string_view;
+using xbsl::make_unique;
+using xbsl::string_view;
 using std::pair;
 using std::unique_ptr;
 using std::vector;
@@ -44,9 +44,9 @@ namespace s2textformat {
 
 static vector<string_view> SplitString(string_view str, char separator) {
   vector<string_view> result =
-      absl::StrSplit(str, separator, absl::SkipWhitespace());
+      xbsl::StrSplit(str, separator, xbsl::SkipWhitespace());
   for (auto& e : result) {
-    e = absl::StripAsciiWhitespace(e);
+    e = xbsl::StripAsciiWhitespace(e);
   }
   return result;
 }
@@ -310,7 +310,7 @@ unique_ptr<MutableS2ShapeIndex> MakeIndexOrDie(string_view str) {
 }
 
 bool MakeIndex(string_view str, std::unique_ptr<MutableS2ShapeIndex>* index) {
-  vector<string_view> strs = absl::StrSplit(str, '#');
+  vector<string_view> strs = xbsl::StrSplit(str, '#');
   S2_DCHECK_EQ(3, strs.size()) << "Must contain two # characters: " << str;
 
   vector<S2Point> points;

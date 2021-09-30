@@ -59,16 +59,16 @@
 #include "s2/s2testing.h"
 #include "s2/s2text_format.h"
 #include "s2/strings/serialize.h"
-#include "s2/third_party/absl/base/macros.h"
-#include "s2/third_party/absl/container/fixed_array.h"
-#include "s2/third_party/absl/memory/memory.h"
-#include "s2/third_party/absl/strings/str_cat.h"
+#include "s2/third_party/xbsl/base/macros.h"
+#include "s2/third_party/xbsl/container/fixed_array.h"
+#include "s2/third_party/xbsl/memory/memory.h"
+#include "s2/third_party/xbsl/strings/str_cat.h"
 #include "s2/util/coding/coder.h"
 #include "s2/util/gtl/legacy_random_shuffle.h"
 #include "s2/util/math/matrix3x3.h"
 
-using absl::StrCat;
-using absl::make_unique;
+using xbsl::StrCat;
+using xbsl::make_unique;
 using s2builderutil::IntLatLngSnapFunction;
 using s2builderutil::S2PolygonLayer;
 using std::max;
@@ -2873,7 +2873,7 @@ class S2PolygonDecodeTest : public ::testing::Test {
   const int kMaxBytes = 256;
 
   // The data array.
-  absl::FixedArray<int8> data_array_;
+  xbsl::FixedArray<int8> data_array_;
 
   // Encoder that is used to put data into the array.
   Encoder encoder_;
